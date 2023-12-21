@@ -4,7 +4,7 @@ import { Chapter, Course, UserProgress } from "@prisma/client"
 import { NavbarRoutes } from "@/components/navbar-routes";
 
 import { CourseMobileSidebar } from "./course-mobile-sidebar";
-import { useTheme } from "next-themes";
+
 
 
 interface CourseNavbarProps {
@@ -20,12 +20,6 @@ export const CourseNavbar = ({
   course,
   progressCount,
 }: CourseNavbarProps) => {
- 
-  
-  const mode = useTheme();
-  const currTheme = mode?.theme;
-  const isDark = currTheme?.startsWith("dark");
-  const isLight = currTheme?.startsWith("light");
  
   
   return (
