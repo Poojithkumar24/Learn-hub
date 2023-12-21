@@ -13,10 +13,14 @@ export const Navbar = () => {
   const isLight = currTheme?.startsWith("light");
 
   return (
-    <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
+    <div>
+     
+     <div className="p-4 border-b h-full flex items-center bg-gradient-to-r from-purple-500 to-pink-500 shadow-sm">
           <MobileSidebar />
       <NavbarRoutes />     
-        </div>
+      </div>
+       
+    </div>
     
   )
 }
