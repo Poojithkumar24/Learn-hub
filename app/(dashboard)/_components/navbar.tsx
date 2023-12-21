@@ -1,4 +1,4 @@
-'use client'
+
 import { NavbarRoutes } from "@/components/navbar-routes"
 import { useTheme } from "next-themes";
 
