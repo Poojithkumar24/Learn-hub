@@ -14,18 +14,20 @@ export const Navbar = () => {
 
   return (
     <div>
-      {isLight ? (
-          <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
+     {isLight && <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
           <MobileSidebar />
       <NavbarRoutes />     
         </div>
-        ) :   isDark?(
-          <div className="p-4 border-b h-full flex items-center bg-black shadow-sm">
-        <MobileSidebar />
-      <NavbarRoutes />
-        </div>
-        ) :null}
+     }
+        {
+         isDark && 
+            <div className="p-4 border-b h-full flex items-center bg-black shadow-sm">
+            <MobileSidebar />
+            <NavbarRoutes />
+           </div>
+        }
     </div>
+    
   )
 }
 
