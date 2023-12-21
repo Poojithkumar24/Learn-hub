@@ -1,14 +1,11 @@
 'use client'
 import { NavbarRoutes } from "@/components/navbar-routes"
 import { useTheme } from "next-themes";
-import {useEffect,useState} from "react"
+
 import { MobileSidebar } from "./mobile-sidebar"
 
 export const Navbar = () => {
-   const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
+   
 
   const mode = useTheme();
   const currTheme = mode?.theme;
