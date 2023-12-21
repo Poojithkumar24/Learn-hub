@@ -93,13 +93,5 @@ body,
 }
 
 @import "~@uploadthing/react/styles.css";
-.blue_gradient {
-  @apply bg-gradient-to-r from-blue-500 via-violet-900 to-blue-500 bg-clip-text text-transparent;
-}
-.green_gradient {
-  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
-}
 
-.red_gradient {
-  @apply bg-gradient-to-r from-red-500 via-red-900 to-red-500 bg-clip-text text-transparent;
-}
+

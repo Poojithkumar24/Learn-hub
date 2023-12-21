@@ -72,6 +72,10 @@ module.exports = withUt({
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        'logo': "url('public/logo.svg')",
+        'vercel': "url('public/vercel.svg')",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

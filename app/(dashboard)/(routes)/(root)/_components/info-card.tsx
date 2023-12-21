@@ -16,7 +16,7 @@ export const InfoCard = ({
   label,
 }: InfoCardProps) => {
   return (
-    <div className="border rounded-md flex items-center gap-x-2 p-3 bg-zinc-200">
+    <div className="border rounded-md flex items-center gap-x-2 p-3 ">
       <IconBadge
         variant={variant}
         icon={Icon}
@@ -25,7 +25,7 @@ export const InfoCard = ({
         <p className="font-medium">
           {label}
         </p>
-        <p className="text-gray-900 text-sm">
+        <p className=" text-sm">
           {numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
         </p>
       </div>

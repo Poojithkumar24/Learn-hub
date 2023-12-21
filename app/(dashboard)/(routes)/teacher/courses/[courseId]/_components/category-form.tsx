@@ -25,11 +25,11 @@ import { Combobox } from "@/components/ui/combobox";
 interface CategoryFormProps {
   initialData: Course;
   courseId: string;
-  options:{label:string;value:string}[];
+  options: { label: string; value: string; }[];
 };
 
 const formSchema = z.object({
-  categoryId: z.string().min(1)
+  categoryId: z.string().min(1),
 });
 
 export const CategoryForm = ({
@@ -46,7 +46,7 @@ export const CategoryForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      categoryId: initialData?.description || ""
+      categoryId: initialData?.categoryId || ""
     },
   });
 
@@ -55,7 +55,7 @@ export const CategoryForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("category updated");
+      toast.success("Course updated");
       toggleEdit();
       router.refresh();
     } catch {
@@ -63,10 +63,10 @@ export const CategoryForm = ({
     }
   }
 
-  const selectedOption = options.find((option)=>option.value === initialData.categoryId);
+  const selectedOption = options.find((option) => option.value === initialData.categoryId);
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 border  rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
         Course category
         <Button onClick={toggleEdit} variant="ghost">
@@ -100,10 +100,9 @@ export const CategoryForm = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Combobox 
-                    options={...options}
-                    {...field}
-                    
+                    <Combobox
+                      options={...options}
+                      {...field}
                     />
                   </FormControl>
                   <FormMessage />

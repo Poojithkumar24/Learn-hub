@@ -7,6 +7,9 @@ import { getProgress } from "@/actions/get-progress";
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
 
+import { ThemeProvider } from "@/components/providers/theme-provider"
+import { ModeToggle } from '@/components/ui/dark-light';
+
 const CourseLayout = async ({
   children,
   params
@@ -50,7 +53,13 @@ const CourseLayout = async ({
   const progressCount = await getProgress(userId, course.id);
 
   return (
-    <div className="h-full bg-stone-400">
+    <div className="h-full ">
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
       <div className="h-[80px] md:pl-80 fixed inset-y-0 w-full z-50">
         <CourseNavbar
           course={course}
@@ -66,6 +75,7 @@ const CourseLayout = async ({
       <main className="md:pl-80 pt-[80px] h-full">
         {children}
       </main>
+      </ThemeProvider>
     </div>
   )
 }
