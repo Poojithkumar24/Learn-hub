@@ -1,16 +1,13 @@
 
 import { NavbarRoutes } from "@/components/navbar-routes"
-import { useTheme } from "next-themes";
+
 
 import { MobileSidebar } from "./mobile-sidebar"
 
 export const Navbar = () => {
    
 
-  const mode = useTheme();
-  const currTheme = mode?.theme;
-  const isDark = currTheme?.startsWith("dark");
-  const isLight = currTheme?.startsWith("light");
+  
 
   return (
     <div>
