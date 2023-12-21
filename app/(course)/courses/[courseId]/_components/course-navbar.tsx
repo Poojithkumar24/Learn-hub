@@ -35,7 +35,7 @@ export const CourseNavbar = ({
 
     
     <div>
-       {isClient && isLight ? (
+       {isLight ? (
           <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
           <CourseMobileSidebar
             course={course}
@@ -43,7 +43,7 @@ export const CourseNavbar = ({
           />
           <NavbarRoutes />      
         </div>
-        ) :  isClient && isDark?(
+        ) :   isDark?(
           <div className="p-4 border-b h-full flex items-center bg-black shadow-sm">
         <CourseMobileSidebar
           course={course}
