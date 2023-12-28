@@ -1,5 +1,6 @@
 import { Category, Course } from "@prisma/client";
-
+import { Button } from "./ui/button";
+import Link from "next/link";
 import { CourseCard } from "@/components/course-card";
 
 type CourseWithProgressWithCategory = Course & {
@@ -32,9 +33,17 @@ export const CoursesList = ({
         ))}
       </div>
       {items.length === 0 && (
-        <div className="text-center text-sm text-black-800 mt-10">
-          No courses found
+        <div>
+            <div className="text-center text-md text-black-800 mt-10 ">
+            No courses registerd!
+              <Link href="/search" className="mr-1 ml-1 text-lg text-underline-offset-4 underline">
+                CLICK HERE
+              </Link>
+              to find a course.
+            </div>
+            
         </div>
+
       )}
     </div>
   )
