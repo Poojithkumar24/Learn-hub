@@ -1,6 +1,6 @@
-'use client'
+
 import { Chapter, Course, UserProgress } from "@prisma/client"
-import { useEffect, useState } from "react";
+
 import { NavbarRoutes } from "@/components/navbar-routes";
 
 import { CourseMobileSidebar } from "./course-mobile-sidebar";
@@ -20,38 +20,21 @@ export const CourseNavbar = ({
   course,
   progressCount,
 }: CourseNavbarProps) => {
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
   
-  const mode = useTheme();
-  const currTheme = mode?.theme;
-  const isDark = currTheme?.startsWith("dark");
-  const isLight = currTheme?.startsWith("light");
+
  
   
   return (
 
     
     <div>
-       {isClient && isLight ? (
-          <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
+       <div className="p-4 border-b h-full flex items-center bg-gradient-to-r from-purple-400 to-pink-400 shadow-sm">
           <CourseMobileSidebar
             course={course}
             progressCount={progressCount}
           />
-          <NavbarRoutes />      
-        </div>
-        ) :  isClient && isDark?(
-          <div className="p-4 border-b h-full flex items-center bg-black shadow-sm">
-        <CourseMobileSidebar
-          course={course}
-          progressCount={progressCount}
-        />
-        <NavbarRoutes />
-        </div>
-        ) :null}
+          <NavbarRoutes />
+          </div>
     </div>
   )
 }
