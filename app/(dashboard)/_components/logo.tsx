@@ -9,7 +9,7 @@ export const Logo = () => {
                 src="/logo.svg"
                 alt="logo"
             />
-            <p className=" mt-3 ml-0.5 text-4xl ">Learn Hub</p>
+            <p className=" mt-3 ml-0.5 text-4xl ">LMS</p>
         </div>
      )
 }

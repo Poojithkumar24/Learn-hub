@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import {dark} from '@clerk/themes';
+import {dark,shadesOfPurple} from '@clerk/themes';
 import { ClerkProvider } from '@clerk/nextjs'
 import {ToastProvider} from '@/components/providers/toaster-provider'
 import { ConfettiProvider } from '@/components/providers/confetti-providers'
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
       <ClerkProvider
       appearance={{
-        baseTheme: dark
+         baseTheme:shadesOfPurple
       }}
       >
         

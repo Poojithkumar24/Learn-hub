@@ -1,21 +1,26 @@
 "use client";
 
-import { BarChart, Compass, Layout, List } from "lucide-react";
+import { BarChart, Compass, Layout, List,Calendar ,ListChecks,PlusCircleIcon } from "lucide-react";
+import { BsDisplay,BsBook, BsBookHalf,BsPlusCircle } from "react-icons/bs";
 import { usePathname } from "next/navigation";
+import { PiChartLineUpBold,PiStudent } from "react-icons/pi";
+import { PiClipboardBold } from "react-icons/pi";
+
 
 import { SidebarItem } from "./sidebar-item";
 
 const guestRoutes = [
   {
-    icon: Layout,
-    label: "Dashboard",
+    icon: ListChecks,
+    label: "Courses",
     href: "/",
   },
   {
     icon: Compass,
-    label: "Browse",
+    label: "Search Courses",
     href: "/search",
   },
+  
 ];
 
 const teacherRoutes = [
