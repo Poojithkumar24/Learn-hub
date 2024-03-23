@@ -35,11 +35,8 @@ export const CoursesList = ({
       {items.length === 0 && (
         <div>
             <div className="text-center text-md text-black-800 mt-10 ">
-<<<<<<< HEAD
-            No courses registerd! register a course
-=======
+
             No courses found
->>>>>>> e8afb64ea0204aad8a2da98f1712818b949e5e16
             </div>
             
         </div>
