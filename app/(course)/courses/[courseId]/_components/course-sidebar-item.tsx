@@ -1,5 +1,5 @@
-"use client";
-
+'use client'
+ 
 import { CheckCircle, Lock, PlayCircle } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
