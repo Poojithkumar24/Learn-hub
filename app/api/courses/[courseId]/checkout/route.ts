@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
 
+
 export async function POST(
   req: Request,
   { params }: { params: { courseId: string } }
@@ -12,8 +13,21 @@ export async function POST(
   try {
     const user = await currentUser();
 
-    if (!user || !user.id || !user.emailAddresses?.[0]?.emailAddress) {
+
+    /* if (!user || !user.id || !user.emailAddresses?.[0]?.emailAddress) {
       return new NextResponse("Unauthorized", { status: 401 });
+    }  */
+
+    if (!user ) {
+      return new NextResponse("must be sign in", { status: 401 });
+    }
+
+    if (!user.id) {
+      return new NextResponse("no user id", { status: 401 });
+    }
+
+    if (!user.emailAddresses?.[0]?.emailAddress) {
+      return new NextResponse("no user email", { status: 401 });
     }
 
     const course = await db.course.findUnique({
