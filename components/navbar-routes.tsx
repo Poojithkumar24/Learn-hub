@@ -35,7 +35,7 @@ export const NavbarRoutes = () => {
       )}
       
       <div className="flex gap-x-2 ml-auto">
-        <div className="mr-3">
+        <div className="mr-3 border-2 bg-sky-500 border-sky-500 rounded-md">
           <ModeToggle />
         </div>
         {isTeacherPage || isCoursePage ? (

@@ -54,7 +54,7 @@ const CourseLayout = async ({
 
   return (
     <div className="h-full ">
-      <ThemeProvider
+      <ThemeProvider 
             attribute="class"
             defaultTheme="system"
             enableSystem
