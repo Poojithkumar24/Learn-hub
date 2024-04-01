@@ -21,6 +21,9 @@ model Course {
 
   categoryId String?
   category Category? @relation(fields: [categoryId], references: [id])
+  yearId String?
+
+  year Year? @relation(fields: [yearId], references: [id])
 
   chapters Chapter[]
   attachments Attachment[]
@@ -121,4 +124,10 @@ model StripeCustomer {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Year{
+  id String @id @default(uuid())
+  name String @unique
+  courses Course[]
 }

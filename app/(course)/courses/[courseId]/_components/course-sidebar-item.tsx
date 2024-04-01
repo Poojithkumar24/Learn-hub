@@ -23,7 +23,7 @@ export const CourseSidebarItem = ({
   const pathname = usePathname();
   const router = useRouter();
 
-  const Icon = isLocked ? Lock : (isCompleted ? CheckCircle : PlayCircle);
+  const Icon = /*isLocked ? Lock :*/ (isCompleted ? CheckCircle : PlayCircle);
   const isActive = pathname?.includes(id);
 
   const onClick = () => {
