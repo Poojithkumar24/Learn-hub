@@ -37,7 +37,7 @@ export const CourseCard = ({
           />
         </div>
         <div className="flex flex-col pt-2">
-          <div className="text-lg md:text-base font-medium group-hover:text-gray-600 transition line-clamp-2">
+          <div className="text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2">
             {title}
           </div>
           <p className="text-xs text-muted-foreground">
@@ -51,13 +51,17 @@ export const CourseCard = ({
               </span>
             </div>
           </div>
-          {  progress !== null &&
+          {progress !== null ? (
             <CourseProgress
               variant={progress === 100 ? "success" : "default"}
               size="sm"
               value={progress}
             />
-          }
+          ) : (
+            <p className="text-md md:text-sm font-medium">
+              {formatPrice(price)}
+            </p>
+          )}
         </div>
       </div>
     </Link>

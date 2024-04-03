@@ -7,7 +7,7 @@ import { Banner } from "@/components/banner";
 import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 
-import { VideoPlayer } from "./_components/vedio-player";
+import { VideoPlayer } from "./_components/video-player";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { CourseProgressButton } from "./_components/course-progress-button";
 
@@ -52,12 +52,12 @@ const ChapterIdPage = async ({
           label="You already completed this chapter."
         />
       )}
-      { /*isLocked && (
+      {isLocked && (
         <Banner
           variant="warning"
           label="You need to purchase this course to watch this chapter."
         />
-      ) */}
+      )}
       <div className="flex flex-col max-w-4xl mx-auto pb-20">
         <div className="p-4">
           <VideoPlayer
@@ -75,7 +75,7 @@ const ChapterIdPage = async ({
             <h2 className="text-2xl font-semibold mb-2">
               {chapter.title}
             </h2>
-            { purchase ? (
+            {purchase ? (
               <CourseProgressButton
                 chapterId={params.chapterId}
                 courseId={params.courseId}
@@ -85,13 +85,9 @@ const ChapterIdPage = async ({
             ) : (
               <CourseEnrollButton
                 courseId={params.courseId}
-                
+                price={course.price!}
               />
-            )
-            
-            
-
-            }
+            )}
           </div>
           <Separator />
           <div>

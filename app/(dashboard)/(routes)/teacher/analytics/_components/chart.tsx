@@ -31,13 +31,13 @@ export const Chart = ({
             tickLine={false}
             axisLine={false}
           />
-          <YAxis
+          {<YAxis
             stroke="#888888"
             fontSize={12}
             tickLine={false}
             axisLine={false}
             tickFormatter={(value) => `Rs ${value}`}
-          />
+        />}
           <Bar
             dataKey="total"
             fill="#0369a1"

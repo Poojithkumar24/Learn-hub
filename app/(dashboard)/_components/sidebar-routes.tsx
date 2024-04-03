@@ -17,7 +17,7 @@ const guestRoutes = [
   },
   {
     icon: Compass,
-    label: "Register Courses",
+    label: "Search Courses",
     href: "/search",
   },
   

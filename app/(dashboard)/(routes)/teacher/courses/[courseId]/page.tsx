@@ -14,7 +14,6 @@ import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { Actions } from "./_components/actions";
-import {YearForm} from "./_components/year-form"
 
 const CourseIdPage = async ({
   params
@@ -52,12 +51,6 @@ const CourseIdPage = async ({
     },
   });
 
-  const years = await db.year.findMany({
-    orderBy: {
-      name: "asc",
-    },
-  });
-
   if (!course) {
     return redirect("/");
   }
@@ -85,13 +78,13 @@ const CourseIdPage = async ({
           label="This course is unpublished. It will not be visible to the students."
         />
       )}
-      <div className="p-6 ">
+      <div className="p-6">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-2">
             <h1 className="text-2xl font-medium">
               Course setup
             </h1>
-            <span className="text-sm ">
+            <span className="text-sm text-slate-700">
               Complete all fields {completionText}
             </span>
           </div>
@@ -129,14 +122,6 @@ const CourseIdPage = async ({
                 value: category.id,
               }))}
             />
-            <YearForm
-              initialData={course}
-              courseId={course.id}
-              options={years.map((year) => ({
-                label: year.name,
-                value: year.id,
-              }))}
-            />
           </div>
           <div className="space-y-6">
             <div>
@@ -158,10 +143,10 @@ const CourseIdPage = async ({
                   Sell your course
                 </h2>
               </div>
-              {/* <PriceForm
+              <PriceForm
                 initialData={course}
                 courseId={course.id}
-              /> */}
+              />
             </div>
             <div>
               <div className="flex items-center gap-x-2">

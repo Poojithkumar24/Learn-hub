@@ -14,8 +14,8 @@ import { useTheme } from 'next-themes';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Learning Management System',
-  description: 'Learning Management System for Institutions',
+  title: 'LearnHub',
+  description: 'Learn with Learn Hub',
 }
 
 export default function RootLayout({

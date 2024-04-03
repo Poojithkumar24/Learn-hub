@@ -1,31 +1,36 @@
-// course-enroll-button:
-'use client'
+"use client";
+
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/button";
+import { formatPrice } from "@/lib/format";
 
 interface CourseEnrollButtonProps {
+  price: number;
   courseId: string;
 }
 
-export const CourseEnrollButton = ({ courseId }: CourseEnrollButtonProps) => {
+export const CourseEnrollButton = ({
+  price,
+  courseId,
+}: CourseEnrollButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onClick = async () => {
     try {
       setIsLoading(true);
 
-      await axios.post(`/api/courses/${courseId}/enroll`);
+      const response = await axios.post(`/api/courses/${courseId}/checkout`)
 
-      toast.success("Enrolled successfully!");
+      window.location.assign(response.data.url);
     } catch {
       toast.error("Something went wrong");
     } finally {
       setIsLoading(false);
     }
-  };
+  }
 
   return (
     <Button
@@ -34,7 +39,7 @@ export const CourseEnrollButton = ({ courseId }: CourseEnrollButtonProps) => {
       size="sm"
       className="w-full md:w-auto"
     >
-      Enroll for the course
+      Enroll for {formatPrice(price)}
     </Button>
-  );
-};
+  )
+}

@@ -30,6 +30,7 @@ export const columns: ColumnDef<Course>[] = [
       )
     },
   },
+  
   {
     accessorKey: "price",
     header: ({ column }) => {
@@ -53,6 +54,7 @@ export const columns: ColumnDef<Course>[] = [
       return <div>{formatted}</div>
     }
   },
+  
   {
     accessorKey: "isPublished",
     header: ({ column }) => {
