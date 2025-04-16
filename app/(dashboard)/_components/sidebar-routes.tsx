@@ -17,8 +17,13 @@ const guestRoutes = [
   },
   {
     icon: Compass,
-    label: "Search Courses",
+    label: "Enroll Courses",
     href: "/search",
+  },
+  {
+    icon: Layout,
+    label: "Take Quiz",
+    href: "/courses/quiz",
   },
   
 ];
@@ -30,9 +35,22 @@ const teacherRoutes = [
     href: "/teacher/courses",
   },
   {
+    icon: PlusCircleIcon,
+    label: "Create Course",
+    href: "/teacher/create",
+  },
+]
+
+const adminRoutes = [
+  {
+    icon: List,
+    label: "Manage Users",
+    href: "/admin",
+  },
+  {
     icon: BarChart,
-    label: "Analytics",
-    href: "/teacher/analytics",
+    label: "Feedback",
+    href: "/admin/feedback",
   },
 ]
 
@@ -40,8 +58,10 @@ export const SidebarRoutes = () => {
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.includes("/teacher");
+  const isAdminPage = pathname?.includes("/admin");
 
-  const routes = isTeacherPage ? teacherRoutes : guestRoutes;
+  let routes = isTeacherPage ? teacherRoutes : guestRoutes;
+  if(isAdminPage) routes = adminRoutes;
 
   return (
     <div className="flex flex-col w-full">

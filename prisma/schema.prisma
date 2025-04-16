@@ -26,11 +26,27 @@ model Course {
   attachments Attachment[]
   purchases Purchase[]
 
+  yearId String?
+  year Year? @relation(fields :[yearId], references: [id])
+  cycleId String?
+  cycle Cycle? @relation(fields :[cycleId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([categoryId])
   //@@fulltext([title])
+}
+
+model Year{
+  id String @id @default(uuid())
+  name String @unique
+  courses Course[]
+}
+
+model Cycle{
+  id String @id @default(uuid())
+  name String @unique
+  courses Course[]
 }
 
 model Category {

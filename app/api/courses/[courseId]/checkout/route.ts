@@ -4,12 +4,16 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
-
+import { auth } from "@clerk/nextjs";
+import { useParams } from "next/navigation";
 
 export async function POST(
   req: Request,
   { params }: { params: { courseId: string } }
 ) {
+
+  const {userId} = auth()
+  const courseId = useParams() 
   try {
     const user = await currentUser();
 
@@ -53,6 +57,18 @@ export async function POST(
     if (!course) {
       return new NextResponse("Not found", { status: 404 });
     }
+
+    const newPurchase = await db.purchase.create({
+      data: {
+        courseId: JSON.stringify(courseId),
+        userId: JSON.stringify(userId),
+      },
+    });
+
+    if(newPurchase) return new NextResponse("enrolled",{status:200});
+    
+
+    
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {

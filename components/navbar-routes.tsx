@@ -7,15 +7,19 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { isTeacher } from "@/lib/teacher";
+import {isAdmin} from "@/lib/admin"
 
 import { SearchInput } from "./search-input";
 import { ModeToggle } from "./ui/dark-light";
+
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.startsWith("/teacher");
+  const isAdminPage = pathname?.startsWith("/admin");
+
   const isCoursePage = pathname?.includes("/courses");
   const isSearchPage = pathname === "/search";
 

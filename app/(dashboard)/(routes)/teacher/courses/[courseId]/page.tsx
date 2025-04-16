@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { IndianRupeeIcon, File, LayoutDashboard, ListChecks } from "lucide-react";
+import { File, LayoutDashboard, ListChecks } from "lucide-react";
 
 import { db } from "@/lib/db";
 import { IconBadge } from "@/components/icon-badge";
@@ -10,7 +10,6 @@ import { TitleForm } from "./_components/title-form";
 import { DescriptionForm } from "./_components/description-form";
 import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
-import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { Actions } from "./_components/actions";
@@ -59,7 +58,6 @@ const CourseIdPage = async ({
     course.title,
     course.description,
     course.imageUrl,
-    course.price,
     course.categoryId,
     course.chapters.some(chapter => chapter.isPublished),
   ];
@@ -138,15 +136,12 @@ const CourseIdPage = async ({
             </div>
             <div>
               <div className="flex items-center gap-x-2">
-                <IconBadge icon={IndianRupeeIcon} />
+               
                 <h2 className="text-xl">
-                  Sell your course
+                  
                 </h2>
               </div>
-              <PriceForm
-                initialData={course}
-                courseId={course.id}
-              />
+              {/**/}
             </div>
             <div>
               <div className="flex items-center gap-x-2">

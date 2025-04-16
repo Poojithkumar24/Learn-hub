@@ -52,12 +52,22 @@ const yearsToAdd = [
     "III",
     "IV",
   ];
+  const cyclesToAdd = [
+    "cycle 1",
+    "cycle 2",
+  ];
 
 async function categoryExists(name) {
   const category = await database.category.findUnique({
     where: { name }
   });
   return Boolean(category);
+}
+async function cycleExists(name) {
+  const cycle = await database.cycle.findUnique({
+    where: { name }
+  });
+  return Boolean(cycle);
 }
 
 async function yearExists(name) {
@@ -76,6 +86,24 @@ async function addCategories() {
 
     try {
       await database.category.create({ data: { name } });
+      
+
+      console.log(`✅ ${name} added successfully.`);
+    } catch (error) {
+      console.log(`🔥 Error adding ${name}: ${error.message}`);
+    }
+  }
+}
+
+async function addCycles() {
+  for (const name of cyclesToAdd) {
+    if (await cycleExists(name)) {
+      console.log(`⚠️  ${name} already exists, skipping...`);
+      continue;
+    }
+
+    try {
+      await database.cycle.create({ data: { name } });
       
 
       console.log(`✅ ${name} added successfully.`);
@@ -127,6 +155,6 @@ async function main1() {
     }
   }
 
-main();
+
 main1();
 
